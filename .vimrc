@@ -2,6 +2,7 @@ augroup autoFileTypes
   autocmd!
   autocmd BufNewFile,BufRead *.markdown,*.md set filetype=markdown
   autocmd BufNewFile,BufRead *.markdown,*.md setlocal spell
+  autocmd BufNewFile,BufRead *.markdown,*.md setlocal textwidth=80
   autocmd BufNewFile,BufRead *.cfg,*.scn set filetype=xml
   autocmd BufNewFile,BufRead *.qml set filetype=qml
   autocmd BufNewFile,BufRead *.c,*.cpp,*.cxx,*.h,*.hpp set cindent
@@ -25,7 +26,6 @@ set colorcolumn=81,101
 set undofile
 set undodir=~/.vim/undo
 set laststatus=2
-set iskeyword+=-
 set tags=tags;~
 
 "" Set netrw options
@@ -51,15 +51,17 @@ augroup END
 "" Define comment style per file type
 augroup comment_leaders
   autocmd!
-  autocmd FileType c,cpp,java,scala let b:comment_leader = '// '
-  autocmd FileType sh,ruby,python   let b:comment_leader = '# '
-  autocmd FileType conf,fstab       let b:comment_leader = '# '
-  autocmd FileType tex              let b:comment_leader = '% '
-  autocmd FileType vim              let b:comment_leader = '" '
+  autocmd FileType c,cpp,java,scala       let b:comment_leader = '// '
+  autocmd FileType sh,ruby,python,cmake   let b:comment_leader = '# '
+  autocmd FileType conf,fstab             let b:comment_leader = '# '
+  autocmd FileType tex                    let b:comment_leader = '% '
+  autocmd FileType vim                    let b:comment_leader = '" '
 augroup END
 
 nnoremap <Tab> :bn<CR>
 nnoremap <S-Tab> :bp<CR>
+nnoremap <Leader>" ciw""<ESC>P
+vnoremap <Leader>" c""<ESC>P
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>//g<Left><Left>
 nnoremap <Leader>// ^i<C-R>=b:comment_leader<CR><Esc>
 nnoremap <Leader>/? 0i<C-R>=b:comment_leader<CR><Esc>
