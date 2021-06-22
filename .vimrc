@@ -66,6 +66,10 @@ nnoremap <Leader>s :%s/\<<C-r><C-w>\>//g<Left><Left>
 nnoremap <Leader>// ^i<C-R>=b:comment_leader<CR><Esc>
 nnoremap <Leader>/? 0i<C-R>=b:comment_leader<CR><Esc>
 vnoremap <Leader>// ^o^I<C-R>=b:comment_leader<CR><Esc>
+nnoremap xc mzI<!-- <Esc>A --><Esc>`z<Right><Right><Right><Right><Right>:delm z<CR>
+nnoremap xC mz^df $F d$`z<Left><Left><Left><Left><Left>:delm z<CR>
+vnoremap xc c<!--<CR><Esc>i--><Esc>P
+vnoremap xC <Esc>`<dd`>dd
 nnoremap <Leader>.. ^df <Esc>
 nnoremap <Leader>.> 0df <Esc>
 vnoremap <Leader>.. ^o^f d<Esc>
