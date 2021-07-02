@@ -29,17 +29,20 @@ set laststatus=2
 set tags=tags;~
 
 "" Set netrw options
-let g:netrw_browse_split=2
-let g:netrw_winsize=25
+let g:netrw_browse_split=4
+let g:netrw_winsize=20
 let g:netrw_banner=0
 let g:netrw_liststyle=3
 let g:netrw_altv=1
 
 "" Automatically open with file tree on left
-"augroup ProjectDrawer
-"  autocmd!
-"  autocmd VimEnter * :Vexplore
-"augroup END
+augroup ProjectDrawer
+  autocmd!
+  autocmd VimEnter * :Vexplore
+augroup END
+
+"" Close netrw or quickfix if only buffer open
+autocmd WinEnter * if winnr('$') == 1 && getbufvar(winbufnr(winnr()), "&filetype") == "netrw" || &buftype == 'quickfix' |q|endif
 
 "" Autotoggle relative numbers
 augroup numbertoggle
