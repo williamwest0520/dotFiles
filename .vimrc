@@ -6,6 +6,7 @@ augroup autoFileTypes
   autocmd BufNewFile,BufRead *.cfg,*.scn set filetype=xml
   autocmd BufNewFile,BufRead *.qml set filetype=qml
   autocmd BufNewFile,BufRead *.c,*.cpp,*.cxx,*.h,*.hpp set cindent
+  autocmd BufNewFile,BufRead *.frag,*.vert set filetype=cpp
 augroup END
 
 syntax enable
@@ -62,6 +63,33 @@ function! ToggleNetrw()
         silent Vexplore
     endif
 endfunction
+
+"" Netrw split alternatives
+function! OpenToRight()
+    :normal v
+    let g:path=expand('%:p')
+    :q!
+    execute 'belowright vnew' g:path
+    :normal <C-l>
+endfunction
+
+function! OpenBelow()
+    :normal v
+    let g:path=expand('%:p')
+    :q!
+    execute 'belowright new' g:path
+    :normal <C-l>
+endfunction
+
+function! NetrwMappings()
+    noremap <buffer> V :call OpenToRight()<CR>
+    noremap <buffer> H :call OpenBelow()<CR>
+endfunction
+
+augroup netrw_mappings
+    autocmd!
+    autocmd FileType netrw :call NetrwMappings()
+augroup END
 
 "" Autotoggle relative numbers
 augroup numbertoggle
