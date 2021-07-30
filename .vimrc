@@ -121,10 +121,10 @@ nnoremap <Leader>// ^i<C-R>=b:comment_leader<CR><Esc>
 nnoremap <Leader>/? 0i<C-R>=b:comment_leader<CR><Esc>
 vnoremap <Leader>// ^o^I<C-R>=b:comment_leader<CR><Esc>
 "" xml comments
-nnoremap xc mzI<!-- <Esc>A --><Esc>`z<Right><Right><Right><Right><Right>:delm z<CR>
-nnoremap xC mz^df $F d$`z<Left><Left><Left><Left><Left>:delm z<CR>
-vnoremap xc c<!--<CR><Esc>i--><Esc>P
-vnoremap xC <Esc>`<dd`>dd
+nnoremap <Leader>xc mzI<!-- <Esc>A --><Esc>`z<Right><Right><Right><Right><Right>:delm z<CR>
+nnoremap <Leader>xC mz^df $F d$`z<Left><Left><Left><Left><Left>:delm z<CR>
+vnoremap <Leader>xc c<!--<CR><Esc>i--><Esc>P
+vnoremap <Leader>xC <Esc>`<dd`>dd
 "" Uncomment
 nnoremap <Leader>.. ^df <Esc>
 nnoremap <Leader>.> 0df <Esc>
