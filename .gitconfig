@@ -1,0 +1,14 @@
+[color]
+  diff = auto
+  status = auto
+  branch = auto
+  interactive = auto
+  ui = true
+  pager = true
+[push]
+	default = simple
+[user]
+	name = William West
+	email = wwest@aegistg.com
+[core]
+   pager = /home/westwc/software/git/contrib/diff-highlight/diff-highlight | less
