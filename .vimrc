@@ -18,7 +18,6 @@ set hlsearch
 set splitright
 set number
 set relativenumber
-set cursorline
 set ruler
 set expandtab
 set backspace=start,eol,indent
@@ -136,7 +135,7 @@ highlight StatusLine cterm=bold ctermfg=6 ctermbg=5
 highlight StatusLineNC cterm=bold ctermfg=0 ctermbg=13
 highlight LineNr ctermfg=242
 highlight CursorLineNr term=bold cterm=NONE ctermfg=11 gui=bold guifg=Yellow
-highlight CursorLine cterm=NONE
+highlight CursorLine cterm=underline
 highlight PmenuSel ctermfg=0 ctermbg=203
 highlight ColorColumn ctermbg=238 ctermfg=203
 highlight SpellBad ctermfg=9 ctermbg=NONE
