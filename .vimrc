@@ -16,6 +16,7 @@ set hidden
 set incsearch
 set hlsearch
 set splitright
+set splitbelow
 set number
 set relativenumber
 set ruler
