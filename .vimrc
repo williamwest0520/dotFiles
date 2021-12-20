@@ -28,6 +28,7 @@ set undofile
 set undodir=~/.vim/undo
 set laststatus=2
 set tags=tags;~
+set t_TI= t_TE=
 
 "" Set netrw options
 let g:netrw_browse_split=4
@@ -111,6 +112,8 @@ augroup END
 "" Tab through buffers
 nnoremap <Tab> :bn<CR>
 nnoremap <S-Tab> :bp<CR>
+"" grep for current word recursively in the arglist
+nnoremap <c-k> :grep  -r ##<Left><Left><Left><Left><Left><Left>
 "" Add quotes
 nnoremap <Leader>" ciw""<ESC>P
 vnoremap <Leader>" c""<ESC>P
