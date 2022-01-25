@@ -113,7 +113,7 @@ augroup END
 nnoremap <Tab> :bn<CR>
 nnoremap <S-Tab> :bp<CR>
 "" grep for current word recursively in the arglist
-nnoremap <c-k> :grep  -r ##<Left><Left><Left><Left><Left><Left>
+nnoremap <c-k> :grep  -rI ## --exclude-dir=.git<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
 "" Add quotes
 nnoremap <Leader>" ciw""<ESC>P
 vnoremap <Leader>" c""<ESC>P
