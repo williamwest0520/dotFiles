@@ -1,14 +1,12 @@
+[user]
+	name = Chris West
+	email = william.c.west98.ctr@mail.mil
 [color]
-  diff = auto
-  status = auto
-  branch = auto
-  interactive = auto
-  ui = true
-  pager = true
+	ui = always
 [push]
 	default = simple
-[user]
-	name = William West
-	email = wwest@aegistg.com
+[alias]
+        lh = log --all --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %C(bold blue)<%an>%Creset %Cgreen(%cr)%Creset%n  %s' --date=relative
+        ll = log --all --graph --oneline --decorate
 [core]
    pager = /home/westwc/software/git/contrib/diff-highlight/diff-highlight | less
