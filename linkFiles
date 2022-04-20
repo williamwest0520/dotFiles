@@ -1,5 +1,5 @@
 #!/bin/bash
-ln -svf ~/dotFiles/.vimrc ~
-ln -svf ~/dotFiles/.bashrc ~
-ln -svf ~/dotFiles/.git_template ~
-ln -svf ~/dotFiles/.gitconfig ~
+ln -svf ~/dotFiles/vimrc ~
+ln -svf ~/dotFiles/bashrc ~
+ln -svf ~/dotFiles/git_template ~
+ln -svf ~/dotFiles/gitconfig ~
