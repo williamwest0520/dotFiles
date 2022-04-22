@@ -9,7 +9,7 @@ fi
 # export SYSTEMD_PAGER=
 
 # User specific aliases and functions
-git_repo()
+git_status()
 {
     if git rev-parse --is-inside-work-tree 1> /dev/null 2>&1
     then
@@ -46,7 +46,22 @@ git_repo()
     fi
 }
 
-PS1="\[\033[01;32m\]\u\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$(git_repo)\$ "
+currently_local()
+{
+    if test $(echo $SSH_CONNECTION | wc -m) -gt 1
+    then
+        return 1
+    else
+        return 0
+    fi
+}
+
+if $(currently_local)
+then
+    PS1="\[\033[01;32m\]\u\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$(git_status)\$ "
+else
+    PS1="\[\033[01;32m\]\u\[\033[01;35m\]@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$(git_status)$ "
+fi
 PS2="\033[01;31m>\033[00m"
 # xinput --set-prop --type=int --format=8 "Primax Kensington Eagle Trackball" "Evdev Middle Button Emulation" "1"
 export XMODIFIERS=@im=ibus
