@@ -13,11 +13,15 @@ git_repo()
 {
     if git rev-parse --is-inside-work-tree 1> /dev/null 2>&1
     then
-        modified=$(git status --short | grep M -c)
+        modified=$(git status --short | grep 'M\b' -c)
         untracked=$(git status --short | grep ?? -c)
+        deleted=$(git status --short | grep 'D\b' -c)
+        renamed=$(git status --short | grep 'R\b' -c)
         spacer=""
         modifiedTracker=""
         untrackedTracker=""
+        deletedTracker=""
+        renamedTracker=""
         if test $modified -gt 0
         then
             modifiedTracker="M"
@@ -28,7 +32,17 @@ git_repo()
             untrackedTracker="U"
             spacer=" "
         fi
-        echo " ($(git branch --show-current)$spacer$modifiedTracker$untrackedTracker) "
+        if test $deleted -gt 0
+        then
+            deletedTracker="D"
+            spacer=" "
+        fi
+        if test $renamed -gt 0
+        then
+            renamedTracker="R"
+            spacer=" "
+        fi
+        echo "($(git branch --show-current)$spacer$modifiedTracker$deletedTracker$renamedTracker$untrackedTracker)"
     fi
 }
 
