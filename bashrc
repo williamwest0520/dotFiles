@@ -69,7 +69,7 @@ PS2="\033[01;31m>\033[00m"
 # 3 - right click
 # xinput --set-prop --type=int --format=8 "Primax Kensington Eagle Trackball" "Evdev Middle Button Emulation" "1"
 ### Sideways
-# xinput --set-button-map # 3 1 2 4 5 6 7 8 9 10 11 12
+xinput --set-button-map "Kensington      Kensington Expert Mouse" 3 1 2 4 5 6 7 8 9 10 11 12
 ### upside down
 # xinput --set-button-map # 2 3 8 4 5 6 7 1 9 10 11 12
 ### property 290 inverts the mouse input
@@ -77,8 +77,8 @@ PS2="\033[01;31m>\033[00m"
 ### for upside down
 # xinput --set-prop # 290 1, 1
 ### for sideways
-# xinput --set-prop # 290 0, 1
-# xinput --set-prop # 292 1
+xinput --set-prop "Kensington      Kensington Expert Mouse" 290 0, 1
+xinput --set-prop "Kensington      Kensington Expert Mouse" 292 1
 export XMODIFIERS=@im=ibus
 export GTK_IM_MODULE=ibus
 export QT_IM_MODULE=ibus
