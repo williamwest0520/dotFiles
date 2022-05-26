@@ -27,6 +27,7 @@ set colorcolumn=81,101
 set undofile
 set undodir=~/.vim/undo
 set laststatus=2
+set mouse=nv
 set tags=tags;~
 set t_TI= t_TE=
 
