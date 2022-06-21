@@ -96,3 +96,5 @@ export XMODIFIERS=@im=ibus
 export GTK_IM_MODULE=ibus
 export QT_IM_MODULE=ibus
 ibus-daemon -d
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
