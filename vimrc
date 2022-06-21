@@ -9,6 +9,14 @@ augroup autoFileTypes
   autocmd BufNewFile,BufRead *.frag,*.vert set filetype=cpp
 augroup END
 
+augroup autoQuickFix
+  autocmd!
+  if $JSIG_HOME != ""
+    autocmd QuickFixCmdPre make* cd $JSIG_HOME
+    autocmd QuickFixCmdPost make* cd -
+  endif
+augroup END
+
 syntax enable
 
 set wildmenu
@@ -41,10 +49,10 @@ let g:netrw_altv=1
 let g:NetrwIsOpen=0
 
 "" Automatically open with file tree on left
-augroup ProjectDrawer
-  autocmd!
-  autocmd VimEnter * :call ToggleNetrw()
-augroup END
+""augroup ProjectDrawer
+""  autocmd!
+""  autocmd VimEnter * :call ToggleNetrw()
+""augroup END
 
 "" Close netrw or quickfix if only buffer open
 autocmd WinEnter * if winnr('$') == 1 && getbufvar(winbufnr(winnr()), "&filetype") == "netrw" || &buftype == 'quickfix' |q|endif
@@ -113,7 +121,10 @@ augroup END
 "" Tab through buffers
 nnoremap <Tab> :bn<CR>
 nnoremap <S-Tab> :bp<CR>
-"" grep for current word recursively in the arglist
+"" Tab through completions
+inoremap <Tab> <C-n>
+inoremap <S-Tab> <C-p>
+"" grep for a word recursively in the arglist
 nnoremap <c-k> :grep  -rI ## --exclude-dir=.git<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
 "" Add quotes
 nnoremap <Leader>" ciw""<ESC>P
@@ -135,6 +146,8 @@ nnoremap <Leader>.> 0df <Esc>
 vnoremap <Leader>.. ^o^f d<Esc>
 "" Toggle netrw
 nnoremap <C-f> :call ToggleNetrw()<CR>
+"" fzf commands
+nnoremap <Leader>o :Files<CR>
 
 highlight StatusLine cterm=bold ctermfg=6 ctermbg=5
 highlight StatusLineNC cterm=bold ctermfg=0 ctermbg=13
