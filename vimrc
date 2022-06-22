@@ -49,13 +49,13 @@ let g:netrw_altv=1
 let g:NetrwIsOpen=0
 
 "" Automatically open with file tree on left
-""augroup ProjectDrawer
-""  autocmd!
-""  autocmd VimEnter * :call ToggleNetrw()
-""augroup END
+" augroup ProjectDrawer
+"   autocmd!
+"   autocmd VimEnter * :call ToggleNetrw()
+" augroup END
 
 "" Close netrw or quickfix if only buffer open
-autocmd WinEnter * if winnr('$') == 1 && getbufvar(winbufnr(winnr()), "&filetype") == "netrw" || &buftype == 'quickfix' |q|endif
+" autocmd WinEnter * if winnr('$') == 1 && getbufvar(winbufnr(winnr()), "&filetype") == "netrw" || &buftype == 'quickfix' |q|endif
 
 "" Toggle netrw
 function! ToggleNetrw()
