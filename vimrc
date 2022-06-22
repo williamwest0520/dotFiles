@@ -15,6 +15,8 @@ augroup autoQuickFix
     autocmd QuickFixCmdPre make* cd $JSIG_HOME
     autocmd QuickFixCmdPost make* cd -
   endif
+  autocmd QuickFixCmdPost [^l]* cwindow
+  autocmd QuickFixCmdPost l* lwindow
 augroup END
 
 syntax enable
