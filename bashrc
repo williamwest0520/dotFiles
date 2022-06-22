@@ -13,10 +13,11 @@ git_status()
 {
     if git rev-parse --is-inside-work-tree 1> /dev/null 2>&1
     then
-        modified=$(git status --short | grep 'M\b' -c)
-        untracked=$(git status --short | grep "??" -c)
-        deleted=$(git status --short | grep 'D\b' -c)
-        renamed=$(git status --short | grep 'R\b' -c)
+        git_status=$(git status --short)
+        modified=$(echo $git_status | grep 'M\b' -c)
+        untracked=$(echo $git_status | grep "??" -c)
+        deleted=$(echo $git_status | grep 'D\b' -c)
+        renamed=$(echo $git_status | grep 'R\b' -c)
         spacer=""
         modifiedTracker=""
         untrackedTracker=""
