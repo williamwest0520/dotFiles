@@ -150,6 +150,7 @@ vnoremap <Leader>.. ^o^f d<Esc>
 nnoremap <C-f> :call ToggleNetrw()<CR>
 "" fzf commands
 nnoremap <Leader>o :Files<CR>
+nnoremap <Leader>l :Lines<CR>
 
 highlight StatusLine cterm=bold ctermfg=6 ctermbg=5
 highlight StatusLineNC cterm=bold ctermfg=0 ctermbg=13
