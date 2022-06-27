@@ -152,6 +152,10 @@ nnoremap <C-f> :call ToggleNetrw()<CR>
 nnoremap <Leader>o :Files<CR>
 nnoremap <Leader>l :Lines<CR>
 
+"" abbreviations
+cnoreabbrev <expr> grep  (getcmdtype() ==# ':' && getcmdline() =~# '^grep')  ? 'silent grep'  : 'grep'
+cnoreabbrev <expr> lgrep (getcmdtype() ==# ':' && getcmdline() =~# '^lgrep') ? 'silent lgrep' : 'lgrep'
+
 highlight StatusLine cterm=bold ctermfg=6 ctermbg=5
 highlight StatusLineNC cterm=bold ctermfg=0 ctermbg=13
 highlight LineNr ctermfg=242
