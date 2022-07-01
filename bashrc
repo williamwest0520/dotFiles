@@ -1,23 +1,29 @@
 # .bashrc
 
-# Sourcing of /etc/bashrc was removed and pertinent code was moved here in order
-# to avoid sourcing tmout.sh, which set TMOUT to 900, read-only
-SHELL=/bin/bash
-# Only display echos from profile.d scripts if we are no login shell
-# and interactive - otherwise just process them to set envvars
-for i in /etc/profile.d/*.sh; do
-    if [ "$i" != "/etc/profile.d/tmout.sh" ]; then
-        if [ -r "$i" ]; then
-            if [ "$PS1" ]; then
-                . "$i"
-            else
-                . "$i" >/dev/null
+if grep --silent 'xr TMOUT' /etc/profile.d/tmout.sh; then
+    # Avoid sourcing /etc/bashrc to avoid sourcing tmout.sh, which sets TMOUT to
+    # 900, read-only
+    SHELL=/bin/bash
+    # Only display echos from profile.d scripts if we are no login shell
+    # and interactive - otherwise just process them to set envvars
+    for i in /etc/profile.d/*.sh; do
+        if [ "$i" != "/etc/profile.d/tmout.sh" ]; then
+            if [ -r "$i" ]; then
+                if [ "$PS1" ]; then
+                    . "$i"
+                else
+                    . "$i" >/dev/null
+                fi
             fi
         fi
+    done
+    export TMOUT=0
+else
+    # No read-only TMOUT present, so source away
+    if [ -f /etc/bashrc ]; then
+           . /etc/bashrc
     fi
-done
-
-export TMOUT=0
+fi
 
 # Uncomment the following line if you don't like systemctl's auto-paging feature:
 # export SYSTEMD_PAGER=
