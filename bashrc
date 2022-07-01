@@ -99,5 +99,9 @@ export QT_IM_MODULE=ibus
 ibus-daemon -d
 
 alias burn="rm -rf"
+alias gs="git status"
+alias gl="git log"
+alias gll="git ll"
+alias gd="git diff"
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
