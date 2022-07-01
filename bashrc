@@ -107,6 +107,11 @@ then
     xinput --set-prop "Kensington      Kensington Expert Mouse" 292 1
 fi
 
+alias gs='git status'
+alias gl='git log'
+alias gll='git ll'
+alias gd='git diff'
+
 export XMODIFIERS=@im=ibus
 export GTK_IM_MODULE=ibus
 export QT_IM_MODULE=ibus

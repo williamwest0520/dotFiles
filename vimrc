@@ -150,6 +150,11 @@ vnoremap <Leader>.. ^o^f d<Esc>
 nnoremap <C-f> :call ToggleNetrw()<CR>
 "" fzf commands
 nnoremap <Leader>o :Files<CR>
+nnoremap <Leader>l :Lines<CR>
+
+"" abbreviations
+cnoreabbrev <expr> grep  (getcmdtype() ==# ':' && getcmdline() =~# '^grep')  ? 'silent grep'  : 'grep'
+cnoreabbrev <expr> lgrep (getcmdtype() ==# ':' && getcmdline() =~# '^lgrep') ? 'silent lgrep' : 'lgrep'
 
 highlight StatusLine cterm=bold ctermfg=6 ctermbg=5
 highlight StatusLineNC cterm=bold ctermfg=0 ctermbg=13
