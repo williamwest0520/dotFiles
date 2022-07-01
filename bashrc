@@ -113,11 +113,6 @@ then
     xinput --set-prop "Kensington      Kensington Expert Mouse" 292 1
 fi
 
-alias gs='git status'
-alias gl='git log'
-alias gll='git ll'
-alias gd='git diff'
-
 export XMODIFIERS=@im=ibus
 export GTK_IM_MODULE=ibus
 export QT_IM_MODULE=ibus
@@ -128,5 +123,6 @@ alias gs="git status"
 alias gl="git log"
 alias gll="git ll"
 alias gd="git diff"
+alias yums="yum list | fzf --preview='echo {} | cut -d \" \" -f1 | xargs yum info' --preview-window=hidden --bind '?:toggle-preview' -m | cut -d \" \" -f1 | xargs sudo yum install -y"
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
