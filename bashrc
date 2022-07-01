@@ -98,4 +98,6 @@ export GTK_IM_MODULE=ibus
 export QT_IM_MODULE=ibus
 ibus-daemon -d
 
+alias burn="rm -rf"
+
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
