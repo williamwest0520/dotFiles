@@ -130,6 +130,8 @@ inoremap <Tab> <C-n>
 inoremap <S-Tab> <C-p>
 "" grep for a word recursively in the arglist
 nnoremap <c-k> :grep  -rI ## --exclude-dir=.git<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
+"" vimgrep for current word in current directory
+nnoremap <Leader>f :vimgrep /<C-r><C-w>/j ./*
 "" Add quotes
 nnoremap <Leader>" ciw""<ESC>P
 vnoremap <Leader>" c""<ESC>P
