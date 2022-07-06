@@ -49,6 +49,8 @@ let g:netrw_liststyle=3
 let g:netrw_altv=1
 "" Define for toggle
 let g:NetrwIsOpen=0
+"" Enable highlighting of code syntax in fenced markdown
+let g:markdown_fenced_languages = ['html', 'python', 'ruby', 'vim', 'cpp', 'c']
 
 "" Automatically open with file tree on left
 " augroup ProjectDrawer
