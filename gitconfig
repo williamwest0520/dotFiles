@@ -8,5 +8,11 @@
 [alias]
         lh = log --all --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %C(bold blue)<%an>%Creset %Cgreen(%cr)%Creset%n  %s' --date=relative
         ll = log --all --graph --oneline --decorate
+        fdiff = "!f() {\
+                    preview=\"git diff $@ --color=always -- {-1}\";\
+                    echo $preview;\
+                    git diff $@ --name-only | fzf -m --ansi --preview \"$preview\";\
+                  };\
+                  f"
 [core]
    pager = /home/westwc/software/git/contrib/diff-highlight/diff-highlight | less
