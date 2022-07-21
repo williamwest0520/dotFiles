@@ -1,18 +1,19 @@
 [user]
-	name = Chris West
-	email = william.c.west98.ctr@mail.mil
+   name = Chris West
+   email = william.c.west98.ctr@mail.mil
 [color]
-	ui = always
+   ui = always
 [push]
-	default = simple
+   default = simple
 [alias]
-        lh = log --all --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %C(bold blue)<%an>%Creset %Cgreen(%cr)%Creset%n  %s' --date=relative
-        ll = log --all --graph --oneline --decorate
-        fdiff = "!f() {\
-                    preview=\"git diff $@ --color=always -- {-1}\";\
-                    echo $preview;\
-                    git diff $@ --name-only | fzf -m --ansi --preview \"$preview\";\
-                  };\
-                  f"
+   lh = log --all --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %C(bold blue)<%an>%Creset %Cgreen(%cr)%Creset%n  %s' --date=relative
+   ll = log --all --graph --oneline --decorate
+   fzfdiff = "!f() {\
+                 preview=\"git diff $@ --color=always -- {-1}\";\
+                 git diff $@ --name-only | fzf -m --ansi --preview-window=right:wrap --preview \"$preview\"\
+                 --bind=ctrl-w:toggle-preview-wrap,page-up:preview-page-up,page-down:preview-page-down,ctrl-space:change-preview-window:99%\\|50%;\
+               };\
+               f"
+   fd = fzfdiff
 [core]
    pager = /home/westwc/software/git/contrib/diff-highlight/diff-highlight | less
