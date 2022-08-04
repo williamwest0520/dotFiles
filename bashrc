@@ -117,6 +117,7 @@ export XMODIFIERS=@im=ibus
 export GTK_IM_MODULE=ibus
 export QT_IM_MODULE=ibus
 ibus-daemon -d
+export EDITOR=vim
 
 alias burn="rm -rf"
 alias gs="git status"
