@@ -160,6 +160,8 @@ nnoremap <Leader>l :Lines<CR>
 cnoreabbrev <expr> grep  (getcmdtype() ==# ':' && getcmdline() =~# '^grep')  ? 'silent grep'  : 'grep'
 cnoreabbrev <expr> lgrep (getcmdtype() ==# ':' && getcmdline() =~# '^lgrep') ? 'silent lgrep' : 'lgrep'
 
+"" colors
+set background=dark
 highlight StatusLine cterm=bold ctermfg=6 ctermbg=5
 highlight StatusLineNC cterm=bold ctermfg=0 ctermbg=13
 highlight LineNr ctermfg=242
