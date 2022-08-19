@@ -19,6 +19,13 @@ augroup autoQuickFix
   autocmd QuickFixCmdPost l* lwindow
 augroup END
 
+augroup restoreCursor
+  autocmd BufReadPost *
+    \ if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit'
+    \ |   exe "normal! g`\""
+    \ | endif
+augroup END
+
 syntax enable
 
 set wildmenu
