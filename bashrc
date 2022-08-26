@@ -119,11 +119,21 @@ export QT_IM_MODULE=ibus
 ibus-daemon -d
 export EDITOR=vim
 
+export PATH=$PATH:$HOME/.cargo/bin
+
 alias burn="rm -rf"
 alias gs="git status"
 alias gl="git log"
 alias gll="git ll"
 alias gd="git diff"
 alias yums="yum list | fzf --preview='echo {} | cut -d \" \" -f1 | xargs yum info' --preview-window=hidden --bind '?:toggle-preview' -m | cut -d \" \" -f1 | xargs sudo yum install -y"
+if type bat >/dev/null 2>&1
+then
+    alias cat=bat
+fi
+if type lsd >/dev/null 2>&1
+then
+    alias ls=lsd
+fi
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
