@@ -134,6 +134,8 @@ if type fzf >/dev/null 2>&1 && type cheat >/dev/null 2>&1
 then
     export CHEAT_USE_FZF=true
 fi
+### Source cheat autocomplete script
+source ~/dotFiles/cheat.sh
 
 ### Aliases
 alias burn="rm -rf"
