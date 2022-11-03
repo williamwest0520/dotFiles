@@ -1,0 +1,13 @@
+#!/bin/bash
+
+#link home dot files
+ln -svf ~/dotFiles/vimrc ~/.vimrc
+ln -svf ~/dotFiles/bashrc ~/.bashrc
+ln -svf ~/dotFiles/git_template ~/.git_template
+ln -svf ~/dotFiles/gitconfig ~/.gitconfig
+ln -svf ~/dotFiles/tmux.conf ~/.tmux.conf
+
+#link config files
+ln -svf ~/dotFiles/cheat ~/.conf/cheat
+ln -svf ~/dotFiles/lsd ~/.conf/lsd
+ln -svf ~/dotFiles/pip ~/.conf/pip

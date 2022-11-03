@@ -48,6 +48,8 @@ set mouse=nv
 set tags=tags;~
 set t_TI= t_TE=
 
+filetype plugin indent on
+
 "" Set netrw options
 let g:netrw_browse_split=4
 let g:netrw_winsize=20
