@@ -135,8 +135,8 @@ augroup END
 nnoremap <Tab> :bn<CR>
 nnoremap <S-Tab> :bp<CR>
 "" Tab through completions
-inoremap <Tab> <C-n>
-inoremap <S-Tab> <C-p>
+inoremap <Tab> <C-p>
+inoremap <S-Tab> <C-n>
 "" grep for a word recursively in the arglist
 nnoremap <c-k> :grep  -rI ## --exclude-dir=.git<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
 "" vimgrep for current word in current directory
