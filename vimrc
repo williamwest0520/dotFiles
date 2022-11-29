@@ -179,3 +179,5 @@ highlight CursorLine cterm=underline
 highlight PmenuSel ctermfg=0 ctermbg=203
 highlight ColorColumn ctermbg=238 ctermfg=203
 highlight SpellBad ctermfg=9 ctermbg=NONE
+highlight link QuickFixLine PmenuSel
+highlight Directory term=bold ctermfg=203 guifg=LightRed
