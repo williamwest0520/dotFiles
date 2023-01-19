@@ -25,4 +25,5 @@ alias gl="git log"
 alias gll="git ll"
 alias gd="git diff"
 
+export VISUAL=vim
 export PROMPT='%m %~> '
