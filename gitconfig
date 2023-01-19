@@ -1,6 +1,6 @@
 [user]
    name = Chris West
-   email = william.c.west98.ctr@mail.mil
+   email = williamcwest@protonmail.com
 [color]
    ui = always
 [push]
@@ -17,7 +17,6 @@
    fd = fzfdiff
 [core]
    pager = delta
-   editor = /usr/local/bin/vim
 
 [interactive]
     diffFilter = delta --color-only --features=interactive
