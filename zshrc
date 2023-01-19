@@ -25,5 +25,26 @@ alias gl="git log"
 alias gll="git ll"
 alias gd="git diff"
 
+### Used by prompts to tell whether or not the current terminal is ssh'd
+currently_local()
+{
+    if test $(echo $SSH_CONNECTION | wc -m) -gt 1
+    then
+        return 1
+    else
+        return 0
+    fi
+}
+
 export VISUAL=vim
-export PROMPT='%m %~> '
+
+if $(currently_local)
+then
+    export PROMPT='%n %(!.#.)%~> '
+else
+    export PROMPT='%n@%m %(!.#.)%~> '
+fi
+
+function append-last-word { ((++CURSOR)); zle insert-last-word; zle vi-add-eol; }
+zle -N append-last-word
+bindkey -M vicmd . append-last-word
