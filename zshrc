@@ -19,6 +19,9 @@ zstyle ':completion::complete:*' gain-privileges 1
 
 alias cat=bat
 alias ls=exa
+alias ll="ls -l"
+alias la="ls -a"
+alias lla="ls -la"
 alias burn="rm -rf"
 alias gs="git status"
 alias gl="git log"
@@ -40,11 +43,14 @@ export VISUAL=vim
 
 if $(currently_local)
 then
-    export PROMPT='%n %(!.#.)%~> '
+    export PROMPT='%n %(!.#.)%1~> '
 else
-    export PROMPT='%n@%m %(!.#.)%~> '
+    export PROMPT='%n@%m %(!.#.)%1~> '
 fi
 
 function append-last-word { ((++CURSOR)); zle insert-last-word; zle vi-add-eol; }
 zle -N append-last-word
 bindkey -M vicmd . append-last-word
+
+zle -A backward-delete-char vi-backward-delete-char
+zle -A backward-kill-word vi-backward-kill-word
