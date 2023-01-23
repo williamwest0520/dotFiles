@@ -17,6 +17,7 @@ compinit
 zstyle ':completion:*' menu select
 zstyle ':completion::complete:*' gain-privileges 1
 
+alias grep="grep --color=always"
 alias cat=bat
 alias ls=exa
 alias ll="ls -l"
@@ -54,3 +55,7 @@ bindkey -M vicmd . append-last-word
 
 zle -A backward-delete-char vi-backward-delete-char
 zle -A backward-kill-word vi-backward-kill-word
+
+[ -f /opt/anaconda/etc/profile.d/conda.sh ] && source /opt/anaconda/etc/profile.d/conda.sh
+[ -f /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh
+[ -f /usr/share/fzf/completion.zsh ] && source /usr/share/fzf/completion.zsh
