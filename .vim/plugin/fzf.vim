@@ -1,0 +1,1 @@
+/home/chris/software/fzf.vim/plugin/fzf.vim
