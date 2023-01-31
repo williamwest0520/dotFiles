@@ -17,7 +17,7 @@ compinit
 zstyle ':completion:*' menu select
 zstyle ':completion::complete:*' gain-privileges 1
 
-alias grep="grep --color=always"
+alias grep="grep --color=auto"
 alias cat=bat
 alias ls=exa
 alias ll="ls -l"
@@ -41,12 +41,14 @@ currently_local()
 }
 
 export VISUAL=vim
+export EDITOR=vim
+export PATH=$PATH:~/bin
 
 if $(currently_local)
 then
-    export PROMPT='%n %(!.#.)%1~> '
+    export PROMPT='%n %(!.#.)%4~> '
 else
-    export PROMPT='%n@%m %(!.#.)%1~> '
+    export PROMPT='%n@%m %(!.#.)%4~> '
 fi
 
 function append-last-word { ((++CURSOR)); zle insert-last-word; zle vi-add-eol; }
