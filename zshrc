@@ -17,12 +17,26 @@ compinit
 zstyle ':completion:*' menu select
 zstyle ':completion::complete:*' gain-privileges 1
 
+if type bat >/dev/null 2>&1
+then
+    alias cat=bat
+fi
+
+# Set up correct ls command
+LS_CMD=ls
+if type exa >/dev/null 2>&1
+then
+    LS_CMD="exa --icons"
+elif type lsd >/dev/null 2>&1
+then
+    LS_CMD="lsd"
+fi
+
 alias grep="grep --color=auto"
-alias cat=bat
-alias ls=exa
-alias ll="ls -l"
-alias la="ls -a"
-alias lla="ls -la"
+alias ls=$LS_CMD
+alias ll="$LS_CMD -l"
+alias la="$LS_CMD -a"
+alias lla="$LS_CMD -la"
 alias burn="rm -rf"
 alias gs="git status"
 alias gl="git log"
