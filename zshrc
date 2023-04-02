@@ -43,6 +43,9 @@ alias gl="git log"
 alias gll="git ll"
 alias gd="git diff"
 
+alias ta="transmission-remote -a"
+alias tl="transmission-remote -l"
+
 ### Used by prompts to tell whether or not the current terminal is ssh'd
 currently_local()
 {
