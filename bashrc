@@ -145,9 +145,10 @@ alias gll="git ll"
 alias gd="git diff"
 alias ta="transmission-remote -a"
 alias tl="transmission-remote -l"
-alias ll="ls -l"
-alias la="ls -A"
-alias lla="ls -lA"
+alias ls="ls --color"
+alias ll="ls --color -l"
+alias la="ls --color -A"
+alias lla="ls --color -lA"
 
 ### Loads up yum search contents into fzf
 ### Can immediately install by selecting and typing enter
