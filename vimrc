@@ -48,6 +48,8 @@ set mouse=nv
 set tags=tags;~
 set t_TI= t_TE=
 
+let g:mapleader=','
+
 filetype plugin indent on
 
 "" Set netrw options
@@ -171,8 +173,8 @@ cnoreabbrev <expr> lgrep (getcmdtype() ==# ':' && getcmdline() =~# '^lgrep') ? '
 
 "" colors
 set background=dark
-highlight StatusLine cterm=bold ctermfg=6 ctermbg=5
-highlight StatusLineNC cterm=bold ctermfg=0 ctermbg=13
+highlight StatusLine cterm=bold ctermfg=81 ctermbg=13
+highlight StatusLineNC cterm=bold ctermfg=13 ctermbg=236
 highlight LineNr ctermfg=242
 highlight CursorLineNr term=bold cterm=NONE ctermfg=11 gui=bold guifg=Yellow
 highlight CursorLine cterm=underline
