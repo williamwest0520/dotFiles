@@ -1,31 +1,5 @@
 # .bashrc
 
-### Copied this out of /etc/bashrc and altered in order to avoid tmout.sh
-if grep --silent 'xr TMOUT' /etc/profile.d/tmout.sh; then
-    # Avoid sourcing /etc/bashrc to avoid sourcing tmout.sh, which sets TMOUT to
-    # 900, read-only
-    SHELL=/bin/bash
-    # Only display echos from profile.d scripts if we are no login shell
-    # and interactive - otherwise just process them to set envvars
-    for i in /etc/profile.d/*.sh; do
-        if [ "$i" != "/etc/profile.d/tmout.sh" ]; then
-            if [ -r "$i" ]; then
-                if [ "$PS1" ]; then
-                    . "$i"
-                else
-                    . "$i" >/dev/null
-                fi
-            fi
-        fi
-    done
-    export TMOUT=0
-else
-    # No read-only TMOUT present, so source away
-    if [ -f /etc/bashrc ]; then
-           . /etc/bashrc
-    fi
-fi
-
 # Uncomment the following line if you don't like systemctl's auto-paging feature:
 # export SYSTEMD_PAGER=
 
@@ -89,38 +63,10 @@ else
 fi
 PS2="\033[01;31m>\033[00m"
 
-#### Mouse buttons
-# 1 - left click
-# 2 - middle click
-# 3 - right click
-
-### if Kensington Orbit is connected
-if xinput --list | grep --quiet "Primax Kensington Eagle Trackball"
-then
-    xinput --set-prop --type=int --format=8 "Primax Kensington Eagle Trackball" "Evdev Middle Button Emulation" "1"
-fi
-
-### if Kensington Master is connected
-if xinput --list | grep --quiet "Kensington      Kensington Expert Mouse"
-then
-    ### Sideways
-    xinput --set-button-map "Kensington      Kensington Expert Mouse" 3 1 2 4 5 6 7 8 9 10 11 12
-    ### upside down
-    # xinput --set-button-map # 2 3 8 4 5 6 7 1 9 10 11 12
-
-    ### property 290 inverts the mouse input
-    ### property 292 swaps the left/right and up/down axes
-    ### for upside down
-    # xinput --set-prop # 290 1, 1
-    ### for sideways
-    xinput --set-prop "Kensington      Kensington Expert Mouse" 290 0, 1
-    xinput --set-prop "Kensington      Kensington Expert Mouse" 292 1
-fi
-
 export XMODIFIERS=@im=ibus
 export GTK_IM_MODULE=ibus
 export QT_IM_MODULE=ibus
-ibus-daemon -d
+# ibus-daemon -d
 
 ### Tell everything to use vim
 export EDITOR=vim
@@ -150,6 +96,7 @@ alias ls="ls --color"
 alias ll="ls --color -l"
 alias la="ls --color -A"
 alias lla="ls --color -lA"
+alias "reflector update"="sudo reflector --verbose --protocol https --sort rate --latest 20 --download-timeout 6 --save /etc/pacman.d/mirrorlist"
 
 ### Loads up yum search contents into fzf
 ### Can immediately install by selecting and typing enter
@@ -164,6 +111,9 @@ if type lsd >/dev/null 2>&1
 then
     alias ls=lsd
 fi
+
+### Fix sudo tab completion
+complete -cf sudo
 
 ### Source fzf's bash file if it is there
 [ -f /usr/share/fzf/completion.bash ] && source /usr/share/fzf/completion.bash
