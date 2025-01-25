@@ -96,7 +96,7 @@ alias ls="ls --color"
 alias ll="ls --color -l"
 alias la="ls --color -A"
 alias lla="ls --color -lA"
-alias "reflector update"="sudo reflector --verbose --protocol https --sort rate --latest 20 --download-timeout 6 --save /etc/pacman.d/mirrorlist"
+alias reflector-update="sudo reflector --verbose --protocol https --sort rate --latest 20 --download-timeout 6 --save /etc/pacman.d/mirrorlist"
 
 ### Loads up yum search contents into fzf
 ### Can immediately install by selecting and typing enter
